@@ -1,0 +1,42 @@
+{% extends "aplicacion4/index.html" %}
+
+{% block titulo %}
+<h1 class="mb-5 text-center">Consolas</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Año</th>
+      <th>Estado</th>
+      <th>Stock</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody> 
+    {% for c in consola_list %}
+      <tr>
+        <td>{{ c.id }}</td>
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.año }}</td>
+        <td>{{ c.estado }}</td>
+        <td>{{ c.stock }}</td>
+        <td>
+          <a href="{% url 'consola_create' %}" class="btn btn-primary btn-sm me-2" title="Crear">
+            <i class="fa fa-plus"></i>
+          </a>
+          <a href="{% url 'consola_update' c.id %}" class="btn btn-warning btn-sm me-2" title="Actualizar">
+            <i class="fa-solid fa-file-pen"></i>
+          </a>
+          <a href="{% url 'consola_delete' c.id %}" class="btn btn-danger btn-sm" title="Eliminar">
+            <i class="fa fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody> 
+</table>
+{% endblock contenido %}

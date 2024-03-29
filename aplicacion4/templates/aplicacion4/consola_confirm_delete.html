@@ -1,0 +1,18 @@
+{% extends "aplicacion4/index.html" %}
+
+{% block titulo %}
+<h1 class="mb-5">Eliminar Consola</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+<h2>Consola</h2>
+<form action="" method="POST">
+    {% csrf_token %}   
+    <div class="text-center">     
+        <h3>¿ Esta seguro de eliminar la consola ? <p style="color:red">{{ object }}</p> </h3>
+    </div>
+    <div class="text-center">
+        <input type="submit" class="btn btn-primary btn-block" value="Confirmar">
+    </div>
+</form>
+{% endblock contenido %}

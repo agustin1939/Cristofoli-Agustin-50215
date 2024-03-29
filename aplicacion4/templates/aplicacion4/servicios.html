@@ -1,0 +1,45 @@
+{% extends "aplicacion4/index.html" %}
+
+{% block titulo %}
+<h1 class="mb-5 text-center">Servicios</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+         <th>Id</th>
+         <th>Nombre</th>
+         <th>Tiempo(días)</th>
+         <th>Acciones</th>
+    </tr> <!-- Cerrar la etiqueta tr aquí -->
+  </thead>
+  <tbody> 
+
+{% for s in servicios %}
+     <tr>
+         <td>{{ s.id }}</td>
+         <td>{{ s.nombre }}</td>
+         <td>{{ s.tiempo }}</td>
+
+          <td>
+               <a href="{% url 'servicio_form' %}" class="btn btn-primary btn-sm me-2" title="Crear">
+            <i class="fa fa-plus"></i>
+          </a>
+          <a href="{% url 'servicio_update' s.id %}" class="btn btn-warning btn-sm me-2" title="Actualizar">
+            <i class="fa-solid fa-file-pen"></i>
+          </a>
+          <a href="{% url 'servicio_delete' s.id %}" class="btn btn-danger btn-sm" title="Eliminar">
+            <i class="fa fa-trash"></i>
+                </a>                
+            </td> 
+      </tr>
+    {% endfor %}
+
+  </tbody> 
+</table>
+
+{% endblock contenido %}
+
+
+

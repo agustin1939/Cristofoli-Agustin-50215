@@ -1,0 +1,15 @@
+{% extends "aplicacion4/index.html" %}
+
+{% block titulo %}
+<h1 class="mb-5">Buscar Servicios</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+
+<form action="/encontrar_servicios/" method="get">
+    {% csrf_token %}
+    <p>Ingrese cadena a buscar: <input type="text" name="buscar" id="buscar"></p>
+    <input type="submit" value="Buscar"> <!-- Usuario le da al submit, es decir, presiona el botón buscar -->
+</form>
+
+{% endblock contenido %}

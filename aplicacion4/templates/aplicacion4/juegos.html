@@ -1,0 +1,41 @@
+{% extends "aplicacion4/index.html" %}
+
+{% block titulo %}
+<h1 class="mb-5 text-center">Juegos</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Consola</th>
+      <th>Stock</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody> 
+    {% for j in juegos %}
+      <tr>
+        <td>{{ j.id }}</td>
+        <td>{{ j.nombre }}</td>
+        <td>{{ j.consola }}</td>
+        <td>{{ j.stock }}</td>
+
+       <td>
+               <a href="{% url 'juego_form' %}" class="btn btn-primary btn-sm me-2" title="Crear">
+            <i class="fa fa-plus"></i>
+          </a>
+          <a href="{% url 'juego_update' j.id %}" class="btn btn-warning btn-sm me-2" title="Actualizar">
+            <i class="fa-solid fa-file-pen"></i>
+          </a>
+          <a href="{% url 'juego_delete' j.id %}" class="btn btn-danger btn-sm" title="Eliminar">
+            <i class="fa fa-trash"></i>
+                </a>                
+            </td> 
+      </tr>
+    {% endfor %}
+  </tbody> 
+</table>
+{% endblock contenido %}

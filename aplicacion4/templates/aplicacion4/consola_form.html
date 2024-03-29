@@ -1,0 +1,15 @@
+{% extends "aplicacion4/index.html" %}
+
+{% block titulo %}
+<h1 class="mb-5">Consolas (formulario)</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+<form action="" method="post">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <input type="submit" value="Guardar">
+</form>
+{% endblock contenido %}
